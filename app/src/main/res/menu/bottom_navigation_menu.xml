@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/ic_search"/>
+
+    <item
+        android:id="@+id/road_map"
+        android:title="RoadMap"
+        android:icon="@drawable/ic_abc"/>
+    <item
+        android:id="@+id/quizes"
+        android:title="Quizes"
+        android:icon="@drawable/ic_apartment"/>
+    <item
+        android:id="@+id/more"
+        android:title="More"
+        android:icon="@drawable/ic_more"/>
+</menu>

@@ -1,0 +1,238 @@
+package com.example.newedutrax.api.models
+
+import android.os.Parcelable
+import com.example.newedutrax.R
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class PopularCourses(
+    val id: String,
+    val name: String,
+    val hour: Int,
+    val lesson: String,
+    val category: String,
+    val state: String,
+    val disc: String,
+    val willLearn: String,
+    val require: String,
+    val about: String,
+    val imgId: Int,
+    val instName: String,
+    val instTitle: String,
+    val insrAbout: String,
+    val instImad: Int?
+) : Parcelable {
+    companion object {
+        fun getPopularCourses(): List<PopularCourses> {
+            return listOf(
+                PopularCourses(
+                    id = "663249dc9dfb988d161e22a",
+                    name = "The Complete HTML course for Beginners from zero to hero",
+                    lesson = "28 lesson",
+                    hour = 3,
+                    category = "Front-end",
+                    state = "free",
+                    disc = "an HTML course provides a solid foundation for anyone looking to start building websites or pursuing a career in web development. It's often the first step in learning how to create dynamic and interactive web experiences.",
+                    willLearn = "Throughout this course, Abdelrahman Gamal will leverage their expertise and passion for web development to provide you with comprehensive instruction, practical insights, and hands-on exercises. By the end of the course, you'll have the knowledge and confidence to create dynamic, responsive, and visually appealing web pages using HTML.",
+                    imgId = R.drawable.css,
+                    require = "Basic computer literacy, familiarity with web browsing.\n" + "Anyone with an interest in web development can enroll.",
+                    about = "I'm a fornt-end web developer and designer with a passion for building beautiful web interfaces from scratch. ",
+                    instName = "Abdelrahman Gamal",
+                    instTitle = "Front End Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Abdelrahman Gamal will leverage their expertise and passion for web development to provide you with comprehensive instruction, practical insights, and hands-on exercises. By the end of the course, you'll have the knowledge and confidence to create dynamic, responsive, and visually appealing web pages using HTML.",
+                    instImad = null
+                ),
+                PopularCourses(
+                    id = "2",
+                    name = "The Complete Node Js course for Beginners from zero to hero",
+                    lesson = "227 lesson",
+                    hour = 33,
+                    category = "Back-end",
+                    state = "free",
+                    imgId = R.drawable.node,
+                    instName = "Ahmed Boghdad",
+                    instTitle = "Back End Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Ahmed Boghdady will guide you through a comprehensive curriculum, combining theoretical concepts with hands-on exercises and real-world examples. By the end of the course, you'll have the expertise to create robust and efficient server-side applications using Node.js.",
+                    instImad = R.drawable.ahmed_boghdady,
+                    disc = "an HTML course provides a solid foundation for anyone looking to start building websites or pursuing a career in web development. It's often the first step in learning how to create dynamic and interactive web experiences.",
+                    willLearn = "Throughout this course, Abdelrahman Gamal will leverage their expertise and passion for web development to provide you with comprehensive instruction, practical insights, and hands-on exercises. By the end of the course, you'll have the knowledge and confidence to create dynamic, responsive, and visually appealing web pages using HTML.",
+                    require = "Familiarity with JavaScript programming language basics is essential.\n" + "May also recommend knowledge of web development concepts like HTML, CSS, and basic understanding of backend development.",
+                    about = "I'm a Back-end web developer and experienced full-stack software engineer with over seven years of extensive experience."
+                ),
+                PopularCourses(
+                    id = "3",
+                    name = "The Complete JavaScript course from zero to hero",
+                    lesson = "80 lesson",
+                    hour = 15,
+                    category = "Front-end",
+                    state = "free",
+                    imgId = R.drawable.front_end_img,
+                    instName = "Abdelrahman Gamal",
+                    instTitle = "Full Stack Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Abdelrahman Gamal will guide you through a comprehensive curriculum,Led by an experienced instructor proficient in JavaScript development, guiding students through the fundamentals and advanced concepts of the language.Covers a wide range of topics including variables, data types, operators, control flow, functions, arrays, objects, DOM manipulation, asynchronous JavaScript, error handling, ES6 features, and more. empowering students to pursue careers as front-end developers, full-stack developers, or JavaScript engineers.",
+                    instImad = R.drawable.abdelrahman,
+                    disc = "JavaScript is the backbone of modern web development, empowering developers to create dynamic and interactive web applications. If you're ready to take your programming skills to the next level, Mastering JavaScript: From Fundamentals to Advanced Concepts is the perfect course for you.",
+                    willLearn = "Throughout this course, Abdelrahman Gamal will guide you through a comprehensive curriculum,Led by an experienced instructor proficient in JavaScript development, guiding students through the fundamentals and advanced concepts of the language.Covers a wide range of topics including variables, data types, operators, control flow, functions, arrays, objects, DOM manipulation, asynchronous JavaScript, error handling, ES6 features, and more. empowering students to pursue careers as front-end developers, full-stack developers, or JavaScript engineers.",
+                    require = "Basic understanding of HTML and CSS fundamentals.\n" + "Familiarity with programming concepts such as variables, data types, conditionals, loops, and functions can also be helpful.",
+                    about = "I'm a full-stack web developer and designer with a passion for building beautiful web interfaces from scratch."
+                ),
+                PopularCourses(
+                    id = "4",
+                    name = "The Complete Bootstrap course for Beginners",
+                    lesson = "28 lesson",
+                    hour = 3,
+                    category = "Front-end",
+                    state = "free",
+                    imgId = R.drawable.bootstarp,
+                    instName = "Abdelrahman Gamal",
+                    instTitle = "Front End Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Abdelrahman Gamal will guide you through a comprehensive curriculum,  Led by an experienced instructor proficient in Bootstrap development, guiding students through the fundamentals and advanced concepts of building responsive",
+                    instImad = R.drawable.abdelrahman,
+                    disc = "In today's digital landscape, creating responsive and visually appealing websites is essential for success. Enter Bootstrap - the world's most popular front-end framework for building responsive, mobile-first web projects with ease. If you're ready to elevate your web design skills and create stunning websites that look great on any device, Mastering Bootstrap: Building Responsive and Stunning Websites is the course for you.",
+                    willLearn = "Throughout this course, Abdelrahman Gamal will guide you through a comprehensive curriculum,  Led by an experienced instructor proficient in Bootstrap development, guiding students through the fundamentals and advanced concepts of building responsive",
+                    require = "Basic understanding of HTML and CSS fundamentals.\n" + "Familiarity with web development concepts such as grids, typography, and layouts can be beneficial.",
+                    about = "I'm a fornt-end web developer and designer with a passion for building beautiful web interfaces from scratch With a passion for creating responsive and visually appealing websites."
+                ),
+                PopularCourses(
+                    id = "5",
+                    name = "The Complete Nest Js course for Beginners from zero to hero",
+                    lesson = "142 lesson",
+                    hour = 22,
+                    category = "Back-end",
+                    state = "free",
+                    imgId = R.drawable.nest,
+                    instName = "Ahmed Boghdady",
+                    instTitle = "Back End Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Ahmed Boghdady will guide you through a comprehensive curriculum, Led by an experienced instructor proficient in Next.js development, guiding students through the fundamentals and advanced concepts of building modern web applications with Next.js.Covers a wide range of topics including server-side rendering (SSR), static site generation (SSG), data fetching, routing, API routes, deployment, and performance optimization.",
+                    instImad = R.drawable.mahmoud_bakr,
+                    disc = "Nest Js empowers developers to build fast, scalable, and SEO-friendly web applications with ease, combining the simplicity of React with the power of server-side rendering.  Next.js uses a file-based routing system that simplifies navigation in your application.",
+                    willLearn = "Throughout this course, Ahmed Boghdady will guide you through a comprehensive curriculum, Led by an experienced instructor proficient in Next.js development, guiding students through the fundamentals and advanced concepts of building modern web applications with Next.js.Covers a wide range of topics including server-side rendering (SSR), static site generation (SSG), data fetching, routing, API routes, deployment, and performance optimization.",
+                    require = "Need solid understanding of HTML, CSS, and JavaScript fundamentals.\n" + "Familiarity with ES6 features such as arrow functions, classes, and modules is also beneficial.",
+                    about = "I am highly skilled web developer and educator specializing in Nest.js and backend development.With 7 years of experience in the industry. "
+
+                ),
+                PopularCourses(
+                    id = "6",
+                    name = "The Complete React Js course for Beginners from zero to hero",
+                    lesson = "110 lesson",
+                    hour = 10,
+                    category = "Front-end",
+                    state = "free",
+                    imgId = R.drawable.react,
+                    instName = "Mahmoud Bakr",
+                    instTitle = "Front End Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Osama Elzero will guide you through a comprehensive curriculum, Led by an experienced instructor proficient in React development, guiding students through the fundamentals and advanced concepts of building web applications with React.Focuses on developing practical skills and knowledge that are directly applicable in real-world web development projects using React.js, preparing students for success in React development roles.",
+                    instImad = R.drawable.mahmoud_bakr,
+                    disc = "your comprehensive guide to mastering one of the most popular JavaScript libraries for building user interfaces. React has revolutionized front-end development by providing a component-based architecture that makes it easy to create reusable and scalable UI components.",
+                    willLearn = "Throughout this course, Osama Elzero will guide you through a comprehensive curriculum, Led by an experienced instructor proficient in React development, guiding students through the fundamentals and advanced concepts of building web applications with React.Focuses on developing practical skills and knowledge that are directly applicable in real-world web development projects using React.js, preparing students for success in React development roles.",
+                    require = "Need solid understanding of HTML, CSS, and JavaScript fundamentals.\n" + "Familiarity with ES6 features such as arrow functions, classes, and modules is also beneficial.",
+                    about = "I am highly skilled web developer and educator specializing in React.js and front-end web development. With a passion for creating interactive and dynamic user interfaces, "
+
+                ),
+                PopularCourses(
+                    id = "7",
+                    name = "The Complete CSS course for Beginners from zero to hero",
+                    lesson = "52 lesson",
+                    hour = 8,
+                    category = "Front-end",
+                    state = "free",
+                    imgId = R.drawable.css,
+                    instName = "Osama Elzero",
+                    instTitle = "Front End Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Osama Elzero will share their wealth of knowledge and practical insights, empowering you to create visually stunning, responsive, and user-friendly websites. From mastering the fundamentals to exploring advanced techniques, you'll gain the confidence and skills needed to tackle any design challenge with ease.",
+                    instImad = R.drawable.elzero,
+                    disc = "In this comprehensive course, we'll take you from the basics of CSS to advanced techniques, equipping you with the knowledge and skills to create beautiful, responsive, and accessible web designs. Whether you're a beginner or an experienced developer, this course will empower you to leverage the full potential of CSS and elevate your web development skills to new heights.",
+                    willLearn = "Throughout this course, Osama Elzero will share their wealth of knowledge and practical insights, empowering you to create visually stunning, responsive, and user-friendly websites. From mastering the fundamentals to exploring advanced techniques, you'll gain the confidence and skills needed to tackle any design challenge with ease.",
+                    require = "Basic understanding of HTML.\n" + "Familiarity with web browsers and web development concepts is also helpful.",
+                    about = "I'm a fornt-end web developer and designer with a passion for building beautiful web interfaces from scratch."
+                ),
+                PopularCourses(
+                    id = "8",
+                    name = "The Complete CS50 course form Scratch for Beginners",
+                    lesson = "82 lesson",
+                    hour = 10,
+                    category = "CS",
+                    state = "free",
+                    imgId = R.drawable.cyber_security_img,
+                    instName = "Abdelrahman Gamal",
+                    instTitle = "Programming Instructor and Web Development Expert",
+                    insrAbout = "Throughout this course, Abdelrahman Gamal will guide you through a comprehensive curriculum, The instructor possesses expertise in computer science concepts, programming languages, algorithms, data structures, and other fundamental topics covered in the CS50 curriculum.Demonstrates a passion for teaching and a commitment to helping students succeed in learning computer science concepts, regardless of their prior experience or background.",
+                    instImad = R.drawable.abdelrahman,
+                    disc = "Developed by Harvard University, CS50 is renowned for its rigorous curriculum, engaging lectures, and hands-on projects that challenge students to think critically and creatively. Through a blend of lectures, problem sets, and programming assignments, you'll explore fundamental concepts in computer science and gain practical skills that are applicable across various domains and industries.",
+                    willLearn = "Throughout this course, Abdelrahman Gamal will guide you through a comprehensive curriculum, The instructor possesses expertise in computer science concepts, programming languages, algorithms, data structures, and other fundamental topics covered in the CS50 curriculum.Demonstrates a passion for teaching and a commitment to helping students succeed in learning computer science concepts, regardless of their prior experience or background.",
+                    require = "Having basic computer literacy and problem-solving skills can be beneficial.\n" + "familiarity with concepts in mathematics, logic, and critical thinking can also aid in understanding the material covered in CS50.",
+                    about = "I am distinguished computer scientist and educator with a passion for inspiring the next generation of coders. With 6 years of experience in the field."
+                ),
+                PopularCourses(
+                    id = "9",
+                    name = "CCNP Security (SCOR 350-701)",
+                    lesson = "54 lesson",
+                    hour = 10,
+                    category = "CCNP Security",
+                    state = "free",
+                    imgId = R.drawable.ccnp,
+                    instName = "Abeer Hosni",
+                    instTitle = "CCNP Instructor and Network and IT infrastructure Expert",
+                    insrAbout = "Throughout this course, Abeer Hosni will guide you through a comprehensive curriculum,  Led by a Cisco Certified Instructor (CCI) or a seasoned networking professional with expertise in Cisco technologies, guiding students through the CCNP certification journey.Covers a wide range of topics including advanced routing protocols (OSPF, EIGRP, BGP), switching technologies (VLANs, STP, EtherChannel), network security, QoS (Quality of Service), MPLS (Multiprotocol Label Switching), and more.",
+                    instImad = null,
+                    disc = "Welcome to the CCNP Security (SCOR 350-701) Course: Securing Networks with Cisco Technologies, your gateway to becoming a certified Cisco security professional and mastering the latest technologies and techniques for securing modern networks. Developed by Cisco, the CCNP Security certification validates your expertise in designing, implementing, and managing security solutions using Cisco technologies.",
+                    willLearn = "Throughout this course, Abeer Hosni will guide you through a comprehensive curriculum,  Led by a Cisco Certified Instructor (CCI) or a seasoned networking professional with expertise in Cisco technologies, guiding students through the CCNP certification journey.Covers a wide range of topics including advanced routing protocols (OSPF, EIGRP, BGP), switching technologies (VLANs, STP, EtherChannel), network security, QoS (Quality of Service), MPLS (Multiprotocol Label Switching), and more.",
+                    require = "Basic understanding of networking concepts: including knowledge of TCP/IP, OSI model, subnetting, routing, switching, and VLANs.\n" + "Cisco Certified Network Associate (CCNA) certification or equivalent knowledge.",
+                    about = "I am highly skilled network engineer and Cisco Certified Internetwork Expert (CCIE) specializing in Cisco networking technologies."
+                ),
+                PopularCourses(
+                    id = "10",
+                    name = "The Complete CCNA 200-301 course",
+                    lesson = "52 lesson",
+                    hour = 37,
+                    category = "CCNA Security",
+                    state = "free",
+                    imgId = R.drawable.ccnp,
+                    instName = "Mahmoud Miaari",
+                    instTitle = "CCNA Instructor and Network and IT infrastructure Exper",
+                    insrAbout = "Throughout this course, Mahmoud Miaari will guide you through a comprehensive curriculum,Led by a Cisco Certified Instructor (CCI) or a seasoned networking professional with expertise in Cisco technologies, guiding students through the CCNA certification journey.Covers a wide range of topics including networking basics, TCP/IP, subnetting, VLANs, routing protocols (e.g., OSPF, EIGRP), WAN technologies, network security, and network automation.",
+                    instImad = null,
+                    disc = "Welcome to the CCNA 200-301 Certification Course, your comprehensive guide to mastering the fundamentals of networking and preparing for the Cisco Certified Network Associate (CCNA) exam. Whether you're a beginner in the field of networking or an experienced professional looking to enhance your skills, this course is designed to provide you with the knowledge and practical experience needed to succeed in the dynamic world of IT networking.",
+                    willLearn = "Throughout this course, Mahmoud Miaari will guide you through a comprehensive curriculum,Led by a Cisco Certified Instructor (CCI) or a seasoned networking professional with expertise in Cisco technologies, guiding students through the CCNA certification journey.Covers a wide range of topics including networking basics, TCP/IP, subnetting, VLANs, routing protocols (e.g., OSPF, EIGRP), WAN technologies, network security, and network automation.",
+                    require = "Basic understanding of networking concepts: including knowledge of TCP/IP, OSI model, subnetting, routing, switching, and VLANs.\n" + "Familiarity with basic networking technologies: Prior knowledge of Ethernet, IP addressing, and common networking devices like routers and switches is beneficial.",
+                    about = "I am highly skilled network engineer and Cisco Certified Internetwork Expert (CCIE) specializing in Cisco networking technologies."
+                ),
+                PopularCourses(
+                    id = "11",
+                    name = "AWS Cloud Practitioner Essentials",
+                    lesson = "58 lesson",
+                    hour = 7,
+                    category = "AWS Cloud",
+                    state = "free",
+                    imgId = R.drawable.aws,
+                    instName = "Saleh Saad",
+                    instTitle = "AWS Cloud Instructor and AWS services Expert",
+                    insrAbout = "Throughout this course, Saleh Saad will guide you through a comprehensive curriculum, Led by an AWS Certified Instructor who has demonstrated expertise in AWS technologies and best practices, guiding students through the AWS cloud learning journey.Covers cloud architecture principles, best practices, and design patterns for building scalable, resilient, and cost-effective solutions on AWS.",
+                    instImad = null,
+                    disc = "This course is designed to provide you with a solid foundation in AWS cloud computing concepts, services, and best practices, empowering you to leverage the full potential of AWS to drive innovation and growth in your organization. Whether you're a beginner or an experienced IT professional, this course will equip you with the knowledge and skills to navigate the AWS cloud with confidence and efficiency.",
+                    willLearn = "Throughout this course, Saleh Saad will guide you through a comprehensive curriculum, Led by an AWS Certified Instructor who has demonstrated expertise in AWS technologies and best practices, guiding students through the AWS cloud learning journey.Covers cloud architecture principles, best practices, and design patterns for building scalable, resilient, and cost-effective solutions on AWS.",
+                    require = "Basic understanding of cloud computing concepts: Familiarity with the fundamentals of cloud computing, including concepts such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS), is beneficial.\n" + "Basic knowledge of IT concepts: Some understanding of networking, storage, virtualization, and security concepts is helpful for grasping the material covered in AWS cloud courses.",
+                    about = "I am highly skilled cloud architect and AWS Certified Solutions Architect specializing in Amazon Web Services (AWS)."
+                ), PopularCourses(
+                    id = "12",
+                    name = "Computing & Security Essentials",
+                    lesson = "15 lesson",
+                    hour = 9,
+                    category = "Computing & Security",
+                    state = "free",
+                    imgId = R.drawable.full_stack_img,
+                    instName = "Mostafa Abd ElSalam",
+                    instTitle = "Security Instructor and Network IT infrastructure Expert",
+                    insrAbout = "Throughout this course, Mostafa Abd ElSalam will guide you through a comprehensive curriculum, The instructor possesses expertise in information security concepts, principles, and practices, including foundational knowledge in computing and cybersecurity essentials.Explores various security controls and mechanisms used to protect information systems and data, including access controls, network security measures, encryption techniques, intrusion detection and prevention systems (IDPS), and incident response procedures.Discusses risk management principles and methodologies, including risk assessment, risk analysis, risk treatment strategies, and the role of risk management in cybersecurity decision-making.",
+                    instImad = null,
+                    disc = "This course is designed to provide you with a solid foundation in AWS cloud computing concepts, services, and best practices, empowering you to leverage the full potential of AWS to drive innovation and growth in your organization. Whether you're a beginner or an experienced IT professional, this course will equip you with the knowledge and skills to navigate the AWS cloud with confidence and efficiency.",
+                    willLearn = "Throughout this course, Saleh Saad will guide you through a comprehensive curriculum, Led by an AWS Certified Instructor who has demonstrated expertise in AWS technologies and best practices, guiding students through the AWS cloud learning journey.Covers cloud architecture principles, best practices, and design patterns for building scalable, resilient, and cost-effective solutions on AWS.",
+                    require = "Basic computer literacy, familiarity with web browsing.\n" + "Anyone with an interest in web development can enroll.",
+                    about = "I am a cybersecurity professional and educator specializing in Information Network and Security."
+                )
+
+            )
+
+        }
+    }
+}
