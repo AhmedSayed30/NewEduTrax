@@ -91,4 +91,6 @@ dependencies {
     implementation("io.coil-kt:coil:2.6.0")
     implementation("androidx.fragment:fragment-ktx:1.7.0")
 
+
+
 }

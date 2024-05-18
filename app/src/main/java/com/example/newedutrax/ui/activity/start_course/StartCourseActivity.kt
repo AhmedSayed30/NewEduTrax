@@ -16,10 +16,10 @@ class StartCourseActivity : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityStartCourseBinding
     val course: GetAllCoursesResponseItem by lazy {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) intent.getParcelableExtra(
-            "course",
+            "item",
             GetAllCoursesResponseItem::class.java
         )!!
-        else intent.getParcelableExtra("course")!!
+        else intent.getParcelableExtra("item")!!
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,8 +46,9 @@ class StartCourseActivity : AppCompatActivity(), OnClickListener {
         when (v) {
             binding.ivBack -> onBackPressed()
             binding.btnStart -> {
-                startActivity(Intent(binding.root.context, CoursePlayerActivity::class.java))
-            }
+                val intent = Intent(binding.root.context, CoursePlayerActivity::class.java)
+                intent.putExtra("id", course._id)
+                startActivity(intent)            }
 
             binding.tvShare -> {
 

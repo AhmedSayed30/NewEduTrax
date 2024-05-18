@@ -13,6 +13,8 @@ import com.example.newedutrax.R
 import com.example.newedutrax.api.models.GetAllCoursesResponseItem
 import com.example.newedutrax.databinding.FragmentCourseDetalBinding
 import com.example.newedutrax.ui.activity.start_course.StartCourseActivity
+import com.example.newedutrax.utils.SharedPrefUtils.getId
+import com.example.newedutrax.utils.SharedPrefUtils.getToken
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -39,10 +41,7 @@ class CourseDetailsActivity : AppCompatActivity() {
         binding.pager.adapter = adapter
         binding.tabView.setupWithViewPager(binding.pager)
         binding.btnEnroll.setOnClickListener {
-            // viewModel.enroll(getToken(binding.root.context), item._id)
-            val intent = Intent(binding.root.context, StartCourseActivity::class.java)
-            intent.putExtra("course", item)
-            startActivity(intent)
+            viewModel.enroll(getToken(binding.root.context), item._id, getId(binding.root.context))
         }
         checkState()
     }
@@ -52,7 +51,7 @@ class CourseDetailsActivity : AppCompatActivity() {
             viewModel.data.collectLatest {
                 it?.let {
                     val intent = Intent(binding.root.context, StartCourseActivity::class.java)
-                    intent.putExtra("course", item)
+                    intent.putExtra("item", item)
                     startActivity(intent)
                 }
             }

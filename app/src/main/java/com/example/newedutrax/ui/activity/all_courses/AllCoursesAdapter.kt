@@ -1,15 +1,14 @@
-package com.example.newedutrax.ui.fragment.search
+package com.example.newedutrax.ui.activity.all_courses
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.newedutrax.api.models.GetAllCoursesResponseItem
-import com.example.newedutrax.api.models.PopularCourses
 import com.example.newedutrax.databinding.SearchLayoutBinding
 
-class SearchAdapter(private val onClick: (item: GetAllCoursesResponseItem) -> Unit) :
-    RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
+class AllCoursesAdapter (private val onClick: (item: GetAllCoursesResponseItem) -> Unit) :
+    RecyclerView.Adapter<AllCoursesAdapter.ViewHolder>() {
     private val data: ArrayList<GetAllCoursesResponseItem> = ArrayList()
 
     class ViewHolder(val binding: SearchLayoutBinding) : RecyclerView.ViewHolder(binding.root)

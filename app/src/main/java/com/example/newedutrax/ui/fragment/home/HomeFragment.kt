@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.newedutrax.ui.activity.course_details.CourseDetailsActivity
 import com.example.newedutrax.api.models.Tabs
 import com.example.newedutrax.databinding.FragmentHomeBinding
+import com.example.newedutrax.ui.activity.all_courses.AllCoursesActivity
 
 
 class HomeFragment : Fragment() {
@@ -89,7 +90,8 @@ class HomeFragment : Fragment() {
         binding.rcFront.adapter = frontEndAdapter
         binding.rcFull.adapter = fullStackAdapter
         binding.tvSee.setOnClickListener {
-
+            val intent = Intent(requireActivity(), AllCoursesActivity::class.java)
+            startActivity(intent)
         }
         showTabs(Tabs.getTabs())
     }

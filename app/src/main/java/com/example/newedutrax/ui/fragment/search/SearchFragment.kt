@@ -1,5 +1,6 @@
 package com.example.newedutrax.ui.fragment.search
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.room.util.query
 import com.example.newedutrax.databinding.FragmentSearchBinding
+import com.example.newedutrax.ui.activity.course_details.CourseDetailsActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -22,6 +24,9 @@ class SearchFragment : Fragment() {
     private val viewModel: SearchViewModel by viewModels()
     private val adapter: SearchAdapter by lazy {
         SearchAdapter {
+            val intent = Intent(requireActivity(), CourseDetailsActivity::class.java)
+            intent.putExtra("item", it)
+            startActivity(intent)
 
         }
     }
@@ -47,13 +52,19 @@ class SearchFragment : Fragment() {
     }
 
     private fun checkState() {
-        lifecycleScope.launch {
-            viewModel.data.collectLatest {
-                it?.let {
-                    adapter.setData(it)
-                }
-            }
+        viewModel.vm.observe(
+            viewLifecycleOwner
+        ){
+            adapter.setData(it)
         }
+        //adapter.setData(viewModel.vm.value.)
+//        lifecycleScope.launch {
+//            viewModel.data.collectLatest {
+//                it?.let {
+//                    adapter.setData(it)
+//                }
+//            }
+//        }
     }
 }
 

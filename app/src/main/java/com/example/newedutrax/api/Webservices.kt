@@ -1,6 +1,7 @@
 package com.example.newedutrax.api
 
 import com.example.newedutrax.api.models.AuthResponse
+import com.example.newedutrax.api.models.CourseLecResponse
 import com.example.newedutrax.api.models.EnrollCourseResponse
 import com.example.newedutrax.api.models.GetAllCoursesResponse
 import com.example.newedutrax.api.models.LogResponse
@@ -13,6 +14,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface Webservices {
     @POST("auth/register")
@@ -28,10 +30,17 @@ interface Webservices {
     @GET("courses")
     fun getAllCourses(): Call<GetAllCoursesResponse>
 
-    @FormUrlEncoded
-    @POST("enroll-course/enroll/{courseId}")
+
+    @POST("enroll-course/enroll/{userID}")
     fun enrollCourse(
-        @Header("Authorization") token: String,
-        @Path("courseId") courseId: String,
+        @Header("token") token: String,
+        @Path("userID") id : String,
+        @Body param: RequestBody
     ): Call<EnrollCourseResponse>
+
+    @GET("course-lecture/courselec/{courseId}")
+    fun getAllLec(
+        @Header("token") token: String,
+        @Path("courseId") courseId: String,
+    ): Call<CourseLecResponse>
 }

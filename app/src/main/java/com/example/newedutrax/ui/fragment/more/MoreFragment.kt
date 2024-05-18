@@ -8,6 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.newedutrax.databinding.FragmentMoreBinding
+import com.example.newedutrax.ui.activity.course_details.CourseDetailsActivity
+import com.example.newedutrax.ui.activity.main.MainActivity
+import com.example.newedutrax.utils.SharedPrefUtils.clearUserData
+import com.example.newedutrax.utils.SharedPrefUtils.getName
 
 class MoreFragment : Fragment() {
     private lateinit var binding: FragmentMoreBinding
@@ -23,6 +27,14 @@ class MoreFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            tvName.text = getName(binding.root.context)
+            btnLogout.setOnClickListener {
+                clearUserData(binding.root.context)
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
         binding.icFace.setOnClickListener {
             openApp("https://www.facebook.com/saiddfa?mibextid=JRoKGi")
         }

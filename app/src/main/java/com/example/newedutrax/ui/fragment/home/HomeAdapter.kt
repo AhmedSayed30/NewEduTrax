@@ -1,12 +1,10 @@
 package com.example.newedutrax.ui.fragment.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import coil.load
-import com.example.newedutrax.api.models.GetAllCoursesResponse
 import com.example.newedutrax.api.models.GetAllCoursesResponseItem
 import com.example.newedutrax.databinding.ItemPopulareCoursesBinding
 
@@ -31,7 +29,7 @@ class HomeAdapter(private val onClick: (item: GetAllCoursesResponseItem) -> Unit
         val item = data[position]
         holder.binding.name.text = item.title
         holder.binding.category.text = item.category[0]
-        holder.binding.hours.text = item.hours + "h"
+        holder.binding.hours.text = item.hours
         holder.binding.courseImg.load(item.image.url)
         holder.binding.lesson.text = item.lessons
         holder.binding.root.setOnClickListener {

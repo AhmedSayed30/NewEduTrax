@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.newedutrax.api.ApiManager
 import com.example.newedutrax.api.models.EnrollCourseResponse
 import com.example.newedutrax.api.models.ErrorResponse
+import com.example.newedutrax.utils.NetworkUtils
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -20,10 +21,14 @@ class CourseDetailsViewModel : ViewModel() {
     private val _data: MutableStateFlow<EnrollCourseResponse?> = MutableStateFlow(null)
     val data = _data.asStateFlow()
 
-    fun enroll(token: String, courseId: String) {
+    fun enroll(token: String, courseId: String,userId: String) {
         _state.update { it.copy(isLoading = true) }
-        ApiManager.getApis().enrollCourse(token, courseId)
+        val body = NetworkUtils.createJsonRequestBody(
+            "course" to courseId,
+        )
+        ApiManager.getApis().enrollCourse(token, userId,body)
             .enqueue(object : Callback<EnrollCourseResponse> {
+
                 override fun onResponse(
                     p0: Call<EnrollCourseResponse>,
                     response: Response<EnrollCourseResponse>
@@ -37,6 +42,8 @@ class CourseDetailsViewModel : ViewModel() {
                                 response.errorBody()?.charStream(),
                                 ErrorResponse::class.java
                             )
+                            Log.e(TAG,error.message)
+
                             _state.update { it.copy(error = error.message) }
                         } catch (ex: Exception) {
                             ex.printStackTrace()

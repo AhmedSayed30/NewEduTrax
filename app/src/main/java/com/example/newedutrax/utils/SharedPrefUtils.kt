@@ -29,8 +29,9 @@ object SharedPrefUtils {
         editor.putString(TOKEN, item?.token)
         editor.apply()
     }
-
+    fun getName(context: Context): String = getSharedPref(context).getString(NAME, "").toString()
     fun getToken(context: Context): String = getSharedPref(context).getString(TOKEN, "").toString()
+    fun getId(context: Context): String = getSharedPref(context).getString(ID, "").toString()
 
     fun isUserLogged(context: Context): Boolean = getToken(context).isNotEmpty()
 
