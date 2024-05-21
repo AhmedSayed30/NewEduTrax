@@ -27,6 +27,8 @@ class LoginActivity : AppCompatActivity(), NavigatorLog {
         viewModel.navigator = this
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+            val intent = Intent(binding.root.context, MainActivity::class.java)
+            startActivity(intent)
         }
 
     }

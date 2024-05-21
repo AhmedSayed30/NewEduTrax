@@ -15,6 +15,9 @@
         android:theme="@style/Theme.NewEduTrax"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.verify.VerifyActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.all_courses.AllCoursesActivity"
             android:exported="false" />
         <activity

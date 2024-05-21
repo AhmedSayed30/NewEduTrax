@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.newedutrax.api.models.GetAllCoursesResponseItem
-import com.example.newedutrax.api.models.PopularCourses
 import com.example.newedutrax.databinding.SearchLayoutBinding
 
 class SearchAdapter(private val onClick: (item: GetAllCoursesResponseItem) -> Unit) :

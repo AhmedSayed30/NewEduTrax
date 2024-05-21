@@ -13,6 +13,7 @@ import com.example.newedutrax.api.models.AuthResponse
 
 import com.example.newedutrax.databinding.ActivityRegisterBinding
 import com.example.newedutrax.ui.activity.login.LoginActivity
+import com.example.newedutrax.ui.activity.verify.VerifyActivity
 
 class RegisterActivity : AppCompatActivity(), Navigator {
     private lateinit var binding: ActivityRegisterBinding
@@ -53,8 +54,10 @@ class RegisterActivity : AppCompatActivity(), Navigator {
                 }.show()
     }
 
-    override fun goHome() {
-        startActivity(Intent(this, LoginActivity::class.java))
+    override fun goVerify(email: String) {
+        val intent = Intent(this, VerifyActivity::class.java)
+        intent.putExtra("email",email)
+        startActivity(intent)
         finish()
     }
 

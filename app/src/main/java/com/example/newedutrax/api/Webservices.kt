@@ -5,6 +5,7 @@ import com.example.newedutrax.api.models.CourseLecResponse
 import com.example.newedutrax.api.models.EnrollCourseResponse
 import com.example.newedutrax.api.models.GetAllCoursesResponse
 import com.example.newedutrax.api.models.LogResponse
+import com.example.newedutrax.api.models.verifyResponse
 import okhttp3.RequestBody
 import org.json.JSONObject
 import retrofit2.Call
@@ -43,4 +44,9 @@ interface Webservices {
         @Header("token") token: String,
         @Path("courseId") courseId: String,
     ): Call<CourseLecResponse>
+
+    @POST("auth/verify-code")
+    fun verifyAccount(
+        @Body param: RequestBody
+    ): Call<verifyResponse>
 }

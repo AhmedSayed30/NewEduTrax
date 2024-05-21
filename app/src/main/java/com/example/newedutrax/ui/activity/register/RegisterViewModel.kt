@@ -38,7 +38,7 @@ class RegisterViewModel : ViewModel() {
                             navigator?.hideDialoge()
                             navigator?.showToast(p1.message())
                             navigator?.bacK(p1.body())
-                            navigator?.goHome()
+                            navigator?.goVerify(email.get().toString())
                         }
                     }
 
