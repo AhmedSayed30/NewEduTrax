@@ -1,5 +1,5 @@
 package com.example.newedutrax.api.models
 
-data class AllEnrollCourses(
+data class AllMyCoursesResponse(
     val EnrolledCourses: List<EnrolledCourse>
 )

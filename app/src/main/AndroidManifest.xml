@@ -52,6 +52,8 @@
         <activity
             android:name=".ui.activity.main.MainActivity"
             android:exported="false" />
+        <meta-data android:name="android.app.searcable"
+            android:resource="@xml/searchable" />
     </application>
 
 </manifest>

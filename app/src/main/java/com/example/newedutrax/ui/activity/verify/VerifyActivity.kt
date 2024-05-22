@@ -25,8 +25,7 @@ class VerifyActivity : AppCompatActivity(), NavigatorVer {
         binding.vm = viewModel
         binding.btnVerify.setOnClickListener {
             intent.getStringExtra("email")?.let { it1 -> viewModel.verify(it1) }
-            val intent = Intent(binding.root.context, MainActivity::class.java)
-            startActivity(intent)
+
 
         }
 

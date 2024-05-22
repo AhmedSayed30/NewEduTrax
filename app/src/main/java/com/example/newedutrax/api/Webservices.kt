@@ -1,5 +1,6 @@
 package com.example.newedutrax.api
 
+import com.example.newedutrax.api.models.AllMyCoursesResponse
 import com.example.newedutrax.api.models.AuthResponse
 import com.example.newedutrax.api.models.CourseLecResponse
 import com.example.newedutrax.api.models.EnrollCourseResponse
@@ -7,15 +8,12 @@ import com.example.newedutrax.api.models.GetAllCoursesResponse
 import com.example.newedutrax.api.models.LogResponse
 import com.example.newedutrax.api.models.verifyResponse
 import okhttp3.RequestBody
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface Webservices {
     @POST("auth/register")
@@ -49,4 +47,10 @@ interface Webservices {
     fun verifyAccount(
         @Body param: RequestBody
     ): Call<verifyResponse>
+
+    @GET("enroll-course/allenrollment/{userID}")
+    fun getMyCourses(
+        @Header("token") token: String,
+        @Path("userID") id : String,
+    ): Call<AllMyCoursesResponse>
 }

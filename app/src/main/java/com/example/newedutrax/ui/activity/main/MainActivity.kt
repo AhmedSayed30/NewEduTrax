@@ -1,8 +1,11 @@
 package com.example.newedutrax.ui.activity.main
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -14,6 +17,7 @@ import com.example.newedutrax.databinding.ActivityMainBinding
 import com.example.newedutrax.ui.fragment.home.HomeFragment
 import com.example.newedutrax.utils.SharedPrefUtils.isUserLogged
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.newedutrax.ui.activity.course_details.CourseDetailsActivity
@@ -42,9 +46,10 @@ class MainActivity : AppCompatActivity() {
         if (isUserLogged(this)) {
             binding.icAccount.visibility = View.GONE
         }
+
         checkState()
 
-        binding.rc.adapter = adapter
+//        binding.rc.adapter = adapter
         binding.btnNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> showFragment(HomeFragment())
@@ -65,23 +70,32 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-        val search = menu.findItem(R.id.search)
-        val searchView = search.actionView as SearchView
+
+    return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val manager=getSystemService(SEARCH_SERVICE) as SearchManager
+        val searchView = item.actionView as SearchView
+        searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
         searchView.queryHint = "Search"
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-            return false
-        }
-        override fun onQueryTextChange(newText: String?): Boolean {
-            if (newText != null) {
-                viewModel.search(newText)
+                Toast.makeText(this@MainActivity, query, Toast.LENGTH_SHORT).show()
+
+                return false
             }
-            return true
-        }
-    })
-    return super.onCreateOptionsMenu(menu)
-        return true
+            override fun onQueryTextChange(newText: String?): Boolean {
+//            if (newText != null) {
+//                viewModel.search(newText)
+//            }
+                Toast.makeText(this@MainActivity, newText, Toast.LENGTH_SHORT).show()
+                return true
+            }
+        })
+        return super.onOptionsItemSelected(item)
     }
     private fun checkState() {
         adapter.setData(viewModel.data.value)
