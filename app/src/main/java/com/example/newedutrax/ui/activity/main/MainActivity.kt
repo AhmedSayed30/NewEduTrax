@@ -1,9 +1,8 @@
 package com.example.newedutrax.ui.activity.main
 
-import android.app.SearchManager
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -16,15 +15,14 @@ import com.example.newedutrax.ui.fragment.roadmap.RoadMapFragment
 import com.example.newedutrax.databinding.ActivityMainBinding
 import com.example.newedutrax.ui.fragment.home.HomeFragment
 import com.example.newedutrax.utils.SharedPrefUtils.isUserLogged
-import android.widget.SearchView
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.example.newedutrax.ui.activity.course_details.CourseDetailsActivity
 import com.example.newedutrax.ui.fragment.my_courses.MyCoursesFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -35,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CourseDetailsActivity::class.java)
             intent.putExtra("item", it)
             startActivity(intent)
-
         }
     }
 
@@ -61,57 +58,29 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
         binding.btnNavigationView.selectedItemId = R.id.home
+        binding.ivSearch.setOnClickListener {
+            showSearchView()
+        }
+        binding.ivBack.setOnClickListener {
+            hideSearchView()
+        }
+        binding.searchView.doOnTextChanged { text, start, before, count ->
+            Log.i(TAG, text.toString())
+        }
 //        binding.icAccount.setOnClickListener {
 //            startActivity(Intent(this, LoginActivity::class.java))
 //        }
-
-
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-
-    return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val manager=getSystemService(SEARCH_SERVICE) as SearchManager
-        val searchView = item.actionView as SearchView
-        searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
-        searchView.queryHint = "Search"
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@MainActivity, query, Toast.LENGTH_SHORT).show()
-
-                return false
-            }
-            override fun onQueryTextChange(newText: String?): Boolean {
-//            if (newText != null) {
-//                viewModel.search(newText)
-//            }
-                Toast.makeText(this@MainActivity, newText, Toast.LENGTH_SHORT).show()
-                return true
-            }
-        })
-        return super.onOptionsItemSelected(item)
-    }
     private fun checkState() {
         adapter.setData(viewModel.data.value)
         lifecycleScope.launch {
             viewModel.data.collectLatest {
-                it?.let {
+                it.let {
                     adapter.setData(it)
                 }
             }
         }
-
-//        viewModel.vm.observe(
-//            this
-//        ) {
-//            adapter.setData(it)
-//        }
     }
 
     private fun showFragment(fragment: Fragment) {
@@ -120,6 +89,28 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container_fragment, fragment)
             .commit()
     }
+
+    private fun showSearchView() {
+        binding.apply {
+            ivLogo.isVisible = false
+            ivSearch.isVisible = false
+            icAccount.isVisible = false
+            searchView.isVisible = true
+            ivBack.isVisible = true
+
+        }
+    }
+
+    private fun hideSearchView() {
+        binding.apply {
+            ivLogo.isVisible = true
+            ivSearch.isVisible = true
+            icAccount.isVisible = true
+            searchView.isVisible = false
+            ivBack.isVisible = false
+        }
+
+    }
 }
 
-
+private const val TAG = "MainActivity"

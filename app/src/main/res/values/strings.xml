@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="get_started">Get Started</string>
     <string name="share_this_course">Share this course</string>
+    <string name="front_end">Front-end</string>
+    <string name="search_result">Search Result</string>
 </resources>
